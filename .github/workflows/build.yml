@@ -1,0 +1,23 @@
+name: Build my gitbook and deploy to gh-pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    env:
+      MY_SECRET: ${{secrets.GITBOOK}}
+      USER_NAME: Zuexx
+      USER_EMAIL: zuexx.hsu@gmail.com
+      BOOK_DIR: ./
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Build and Deploy 🚀
+        uses: onejar99/gitbook-build-publish-action@v1.0.2
