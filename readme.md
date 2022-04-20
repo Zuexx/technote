@@ -6,4 +6,4 @@
 
 - [[Note] Learning Rust](./rust/learning-rust.md)
 
-  Simple note for syntax of Rust
+  Simple note for learning Rust
