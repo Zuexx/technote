@@ -1,0 +1,355 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Rust learning note · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../gitbook/gitbook-tutorial.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook/gitbook-tutorial.html">
+            
+                <a href="../gitbook/gitbook-tutorial.html">
+            
+                    
+                    Setup GitBook with GitBook CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="learning-rust.html">
+            
+                <a href="learning-rust.html">
+            
+                    
+                    Rust learning note
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Rust learning note</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#variables"><b></b>Variables</a></li><li><span class="title-icon "></span><a href="#define-an-enum"><b></b>Define an Enum</a></li><li><span class="title-icon "></span><a href="#define-an-enum-with-structs"><b></b>Define an enum with structs</a></li><li><span class="title-icon "></span><a href="#instantiate-an-enum"><b></b>Instantiate an enum</a></li></ul></div><a href="#variables" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="variables"><a name="variables" class="anchor-navigation-ex-anchor" href="#variables"><i class="fa fa-link" aria-hidden="true"></i></a>Variables</h1>
+<p>In Rust, variable bindings are <span style="background:#369;border-radius:5px; padding:3px 5px; color:white">immutable</span> by default. When a variable is immutable, after a value is bound to a name, you can&apos;t change that value.</p>
+<p>To mutate a value, we must first use the <span style="background:#369;border-radius:5px; padding:3px 5px;color:white">mut</span> keyword to make a variable binding mutable.</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// immutable variable by default rule of the Rust</span>
+<span class="hljs-keyword">let</span> immutable_variable:<span class="hljs-keyword">i64</span> = <span class="hljs-number">23</span>;
+
+<span class="hljs-comment">// Declare the mutable variable with `mut` keyword</span>
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> mutable_vaiable:$<span class="hljs-keyword">str</span>= <span class="hljs-string">&quot;This is the mutable variable which declared with `mut` keyword&quot;</span>.
+</code></pre>
+<h1 id="define-an-enum"><a name="define-an-enum" class="anchor-navigation-ex-anchor" href="#define-an-enum"><i class="fa fa-link" aria-hidden="true"></i></a>Define an Enum</h1>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">WebEvent</span></span> {
+    <span class="hljs-comment">// An enum variant can be like a unit struct without fields or data types</span>
+    WELoad,
+    <span class="hljs-comment">// An enum variant can be like a tuple struct with data types but no named fields</span>
+    WEKeys(<span class="hljs-built_in">String</span>, <span class="hljs-keyword">char</span>),
+    <span class="hljs-comment">// An enum variant can be like a classic struct with named fields and their data types</span>
+    WEClick { x: <span class="hljs-keyword">i64</span>, y: <span class="hljs-keyword">i64</span> }
+}
+</code></pre>
+<p>The enum in our example has three variants of different types:</p>
+<ul>
+<li>WELoad has no associated data type or data.</li>
+<li>WEKeys has two fields with data types String and char.</li>
+<li>WEMClick contains an anonymous struct with named fields x and y, and their data types (i64).</li>
+</ul>
+<h1 id="define-an-enum-with-structs"><a name="define-an-enum-with-structs" class="anchor-navigation-ex-anchor" href="#define-an-enum-with-structs"><i class="fa fa-link" aria-hidden="true"></i></a>Define an enum with structs</h1>
+<pre><code class="lang-rust"><span class="hljs-comment">// Define a tuple struct</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">KeyPress</span></span>(<span class="hljs-built_in">String</span>, <span class="hljs-keyword">char</span>);
+
+<span class="hljs-comment">// Define a classic struct</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">MouseClick</span></span> { x: <span class="hljs-keyword">i64</span>, y: <span class="hljs-keyword">i64</span> }
+
+<span class="hljs-comment">// Redefine the enum variants to use the data from the new structs</span>
+<span class="hljs-comment">// Update the page Load variant to have the boolean type</span>
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">WebEvent</span></span> { WELoad(<span class="hljs-keyword">bool</span>), WEClick(MouseClick), WEKeys(KeyPress) }
+</code></pre>
+<h1 id="instantiate-an-enum"><a name="instantiate-an-enum" class="anchor-navigation-ex-anchor" href="#instantiate-an-enum"><i class="fa fa-link" aria-hidden="true"></i></a>Instantiate an enum</h1>
+<h5 id="simple-variant-weloadbool"><a name="simple-variant-weloadbool" class="anchor-navigation-ex-anchor" href="#simple-variant-weloadbool"><i class="fa fa-link" aria-hidden="true"></i></a>Simple variant: WELoad(bool)</h5>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> we_load = WebEvent::WELoad(<span class="hljs-literal">true</span>);
+</code></pre>
+<h5 id="struct-variant-weclickmouseclick"><a name="struct-variant-weclickmouseclick" class="anchor-navigation-ex-anchor" href="#struct-variant-weclickmouseclick"><i class="fa fa-link" aria-hidden="true"></i></a>Struct variant: WEClick(MouseClick)</h5>
+<pre><code class="lang-rust"><span class="hljs-comment">// Instantiate a MouseClick struct and bind the coordinate values</span>
+<span class="hljs-keyword">let</span> click = MouseClick { x: <span class="hljs-number">100</span>, y: <span class="hljs-number">250</span> };
+
+<span class="hljs-comment">// Set the WEClick variant to use the data in the click struct</span>
+<span class="hljs-keyword">let</span> we_click = WebEvent::WEClick(click);
+</code></pre>
+<h5 id="tuple-variant-wekeyskeypress"><a name="tuple-variant-wekeyskeypress" class="anchor-navigation-ex-anchor" href="#tuple-variant-wekeyskeypress"><i class="fa fa-link" aria-hidden="true"></i></a>Tuple variant: WEKeys(KeyPress)</h5>
+<pre><code class="lang-rust"><span class="hljs-comment">// Instantiate a KeyPress tuple and bind the key values</span>
+<span class="hljs-keyword">let</span> keys = KeyPress(<span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;Ctrl+&quot;</span>), <span class="hljs-string">&apos;N&apos;</span>);
+
+<span class="hljs-comment">// Set the WEKeys variant to use the data in the keys tuple</span>
+<span class="hljs-keyword">let</span> we_key = WebEvent::WEKeys(keys);
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../gitbook/gitbook-tutorial.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Setup GitBook with GitBook CLI">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Rust learning note","level":"1.3","depth":1,"previous":{"title":"Setup GitBook with GitBook CLI","level":"1.2","depth":1,"path":"gitbook/gitbook-tutorial.md","ref":"./gitbook/gitbook-tutorial.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["remove-published-with-link","anchor-navigation-ex","edit-link","copy-code-button","theme-comscore","ga","chapter-fold","expandable-chapters","splitter"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"night","family":"sans"},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-comscore":{},"remove-published-with-link":{},"copy-code-button":{},"ga":{"configuration":"auto","token":""},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/Zuexx/technote/edit/main/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rust/learning-rust.md","mtime":"2022-04-21T02:11:36.454Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-21T02:12:09.276Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-remove-published-with-link/remove-link.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
